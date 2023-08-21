@@ -1,0 +1,39 @@
+version : '3'
+
+services :
+  db :
+    container_name: narongsak-postgres
+    ports:
+      - 54322:5432
+    environment:
+      - POSTGRES_USER=Narongsak
+      - POSTGRES_PASSWORD=131145
+    image: postgres:14.4
+    restart: unless-stopped
+
+  pgadmin :
+    container_name : narongsak-pgadmin
+    ports:
+      - 4433:443
+      - 8080:80
+    environment :
+      - PGADMIN_DEFAULT_EMAIL=narongsak-t@rmutp.ac.th
+      - PGADMIN_DEFAULT_PASSWORD=131145
+    image : dpage/pgadmin4:latest
+    restart : unless-stopped
+
+  strapi :
+    container_name : narongsak-strapi
+    ports:
+      - 1337:1337
+    environment :
+      - name=value
+      - DATABASE_CLIENT=postgres
+      - DATABASE_PORT=54322
+      - DATABASE_NAME=strapii3
+      - DATABASE_HOST=192.168.56.1
+      - DATABASE_USERNAME=narongsak-t
+      - DATABASE_PASSWORD=131145
+      - DATABASE_SSL=false
+    image: 'naskio/strapi:latest'  
+    restart: 'unless-stopped'  
