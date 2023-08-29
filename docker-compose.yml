@@ -17,8 +17,8 @@ services :
       - 4433:443
       - 8080:80
     environment :
-      - PGADMIN_DEFAULT_EMAIL=narongsak-t@rmutp.ac.th
-      - PGADMIN_DEFAULT_PASSWORD=131145
+      - PGADMIN_DEFAULT_EMAIL=${PG_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PG_PASS}
     image : dpage/pgadmin4:latest
     restart : unless-stopped
 
@@ -32,8 +32,8 @@ services :
       - DATABASE_PORT=54322
       - DATABASE_NAME=strapii3
       - DATABASE_HOST=192.168.56.1
-      - DATABASE_USERNAME=narongsak-t
-      - DATABASE_PASSWORD=131145
+      - DATABASE_USERNAME=${Strapi_USER}
+      - DATABASE_PASSWORD=${Strapi_PASS}
       - DATABASE_SSL=false
     image: 'naskio/strapi:latest'  
     restart: 'unless-stopped'  
