@@ -28,12 +28,12 @@ services :
       - 1337:1337
     environment :
       - name=value
-      - DATABASE_CLIENT=postgres
-      - DATABASE_PORT=54322
-      - DATABASE_NAME=strapii3
-      - DATABASE_HOST=192.168.56.1
+      - DATABASE_CLIENT=${Strapi_CLIENT}
+      - DATABASE_PORT=${Strapi_PORT}
+      - DATABASE_NAME=${Strapi_NAME}
+      - DATABASE_HOST=${Strapi_HOST}
       - DATABASE_USERNAME=${Strapi_USER}
       - DATABASE_PASSWORD=${Strapi_PASS}
-      - DATABASE_SSL=false
+      - DATABASE_SSL=${Strapi_SSL}
     image: 'naskio/strapi:latest'  
     restart: 'unless-stopped'  
